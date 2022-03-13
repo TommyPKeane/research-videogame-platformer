@@ -13,20 +13,24 @@ pytest-cov = "^3.0.0"
 semgrep = "^0.84.0"
 flake8 = "^4.0.1"
 isort = "^5.10.1"
+black = "^22.1.0"
+pyproject-flake8 = "^0.0.1-alpha.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.flake8.ini_options]
+[tool.flake8]
 ignore = "D203"
-exclude =
-    .git,
-    __pycache__,
-    docs/source/conf.py,
-    old,
-    build,
-    dist
+exclude = [
+    ".git/",
+    "__pycache__/",
+    "docs/source/conf.py",
+    "old",
+    ".direnv/",
+    "build",
+    "idist",
+]
 max-complexity = 10
 
 [tool.pytest.ini_options]

@@ -41,4 +41,3 @@ class Movement:
 
     def decelerate(self, decel_factor):
         pass
-
