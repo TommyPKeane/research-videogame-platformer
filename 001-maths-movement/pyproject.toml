@@ -6,6 +6,9 @@ authors = ["Tommy P. Keane <talk.to.tommypkeane@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+plotly = "^5.6.0"
+dash = "^2.2.0"
+pandas = "^1.4.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.0.1"
@@ -39,3 +42,35 @@ addopts = "--cov"
 testpaths = [
     "tests_unit",
 ]
+
+[tool.coverage.run]
+branch = true
+data_file = ".coverage"
+source = [
+    "./",
+]
+# include = []  # Mutually-exclusive to `source`
+omit = [
+    "**/__init__.py",
+    "**/conftest.py",
+    "*.pyd",
+    "*.pyc",
+    ".direnv/**",
+    "tests_unit/**",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",  # Have to re-enable the standard pragma
+    "def __repr__",  # Don't complain about missing debug-only code:
+    "if self\\.debug",  # Don't complain about missing debug-only code:
+    "raise AssertionError",  # Don't complain if tests don't hit defensive assertion code:
+    "raise NotImplementedError",  # Don't complain if tests don't hit defensive assertion code:
+    "if 0:",  # Don't complain if non-runnable code isn't run:
+    "if __name__ == .__main__.:",  # Don't complain if non-runnable code isn't run:
+    "@(abc\\.)?abstractmethod",  # Don't complain about abstract methods, they aren't run:
+]
+ignore_errors = true
+
+[tool.coverage.html]
+directory = "_reports"
