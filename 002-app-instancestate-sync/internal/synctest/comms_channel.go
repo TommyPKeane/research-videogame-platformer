@@ -1,0 +1,3 @@
+package synctest
+
+var ()
